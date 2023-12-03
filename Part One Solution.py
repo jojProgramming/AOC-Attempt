@@ -69,10 +69,10 @@ for i in range(len(puzzleInput)-1): # Read in each string
             #print(lowerI)
             higherI = lowerI + len(currentPart) + 2
             if lowerI != -1:
-                currentApproved = isApproved(aboveInput,lowerI,higherI)
+                currentApproved = isApproved(aboveInput,lowerI,higherI -1)
                 if currentApproved == False:
                     #print(currentPart, "LOWER CHECKIN")
-                    currentApproved = isApproved(belowInput,lowerI,higherI)
+                    currentApproved = isApproved(belowInput,lowerI,higherI -1)
         if currentApproved == True:
             #print("The following value is marked as true: ", currentPart)
             total += getSum(currentPart)
