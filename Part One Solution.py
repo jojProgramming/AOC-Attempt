@@ -46,7 +46,7 @@ for i in range(len(puzzleInput)-1): # Read in each string
     
     currentSet = currentInput.split('.')
     for j in range(len(currentSet)):
-        
+        appendage = str()
         currentApproved = False
         currentPart = currentSet[j]
 
@@ -65,6 +65,7 @@ for i in range(len(puzzleInput)-1): # Read in each string
                 lowerI = currentInput.find("."+currentPart)
                 if lowerI == -1:
                     lowerI = currentInput.find(currentPart+".")
+            
             #print(lowerI)
             higherI = lowerI + len(currentPart) + 2
             if lowerI != -1:
@@ -75,6 +76,11 @@ for i in range(len(puzzleInput)-1): # Read in each string
         if currentApproved == True:
             #print("The following value is marked as true: ", currentPart)
             total += getSum(currentPart)
+        for y in range(len(currentPart)):
+                appendage = appendage + "0"
+                #print(appendage)
+        alpha = currentInput.find("."+currentPart+".")
+        currentInput = currentInput[:alpha] + appendage + currentInput[(alpha+len(currentPart)):]
 
 input(total)
     #print(currentSet)
